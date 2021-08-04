@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Layout from './components/layout';
+import Aside from './components/Aside';
+import Content from './components/Content';
+import Header from './components/Header';
+import {ThemeProvider} from 'styled-components'
+import lightTheme from './styles/lightTheme';
+import Routes from './routes';
 
-function App() {
+
+const App:React.FC = ()=> {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ThemeProvider theme={lightTheme}>
+        <Layout>
+              <Aside/>
+              <Header/>
+              <Content>
+                <Routes/>
+              </Content>
+         </Layout>
+    </ThemeProvider>
+ 
+  )
 }
 
 export default App;
